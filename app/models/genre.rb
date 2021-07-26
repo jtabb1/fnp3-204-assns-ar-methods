@@ -12,8 +12,15 @@ class Genre < ActiveRecord::Base
     self.artists.count
   end
 
-  def all_artist_names
+  def all_artist_names_01
     # return an array of strings containing every musician's name
     self.artists.map{|et| et.name}
+  end
+
+  # this alternate method from the official solution also passes 
+  #   the test
+  def all_artist_names
+    # return an array of strings containing every musician's name
+    self.artists.pluck(:name)
   end
 end
